@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "webpack serve --config=demo/webpack.config.js",
-    "build:demo": "webpack --config=demo/webpack.config.js",
+    "build": "webpack --config=webpack.config.js",
     "build:lib": "webpack",
     "predeploy": "npm run build:demo",
     "deploy": "gh-pages -d demo/public",
