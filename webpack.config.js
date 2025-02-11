@@ -1,3 +1,6 @@
+const path = require('path'); // ✅ Required for resolving file paths
+var nodeExternals = require('webpack-node-externals');
+
 module.exports = {
     mode: 'production',
     target: 'web',  // Change from 'node' to 'web'
