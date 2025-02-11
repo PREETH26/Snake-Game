@@ -22,7 +22,9 @@
     "url": "https://github.com/MaelDrapier/react-simple-snake.git"
   },
   "homepage": "https://maeldrapier.github.io/react-simple-snake",
-  "dependencies": {},
+  "dependencies": {
+    "netlify-cli": "^18.0.4"
+  },
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
