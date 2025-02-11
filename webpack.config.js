@@ -1,27 +1,23 @@
-var nodeExternals = require('webpack-node-externals');
-var path = require('path');
-
 module.exports = {
     mode: 'production',
-    target: 'node',
-    externals: [nodeExternals()],
+    target: 'web',  // Change from 'node' to 'web'
     entry: path.join(__dirname, 'src', 'SnakeGame.jsx'),
-	output: {
-        path: path.resolve('lib'),
+    output: {
+        path: path.resolve(__dirname, 'dist'), // Change from 'lib' to 'dist'
         filename: 'snake.js',
-        libraryTarget: 'commonjs2',
+        publicPath: '/', // Important for Netlify routing
     },
-	module: {
-		rules: [
-			{
+    module: {
+        rules: [
+            {
                 test: /\.(js|jsx)?$/,
                 exclude: /(node_modules)/,
                 use: "babel-loader"
-			},
-			{
-                test: /\.css/,
+            },
+            {
+                test: /\.css$/,
                 use: ['style-loader', 'css-loader']
-			},
-		]
+            },
+        ]
     },
-}
+};
