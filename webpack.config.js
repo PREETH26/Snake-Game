@@ -1,14 +1,15 @@
-const path = require('path'); // ✅ Required for resolving file paths
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // Import plugin
 var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: 'production',
-    target: 'web',  // Change from 'node' to 'web'
+    target: 'web',  
     entry: path.join(__dirname, 'src', 'SnakeGame.jsx'),
     output: {
-        path: path.resolve(__dirname, 'dist'), // Change from 'lib' to 'dist'
+        path: path.resolve(__dirname, 'dist'),
         filename: 'snake.js',
-        publicPath: '/', // Important for Netlify routing
+        publicPath: '/', 
     },
     module: {
         rules: [
@@ -23,4 +24,10 @@ module.exports = {
             },
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'index.html'), // Use your existing index.html
+            filename: 'index.html',
+        }),
+    ],
 };
